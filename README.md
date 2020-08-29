@@ -19,13 +19,13 @@ make build
 
 ## Running
 
-##### Parameters: 
+#### Parameters: 
 
-**THRESHOLD** - Number of word characters in result. Default = 7
+`THRESHOLD - Number of word characters in result. Default = 7`
 
-**LINES** - Number of result lines. Default = 100
+`LINES - Number of result lines. Default = 100`
 
-##### Example:
+#### Example:
 ````bash
 make run THRESHOLD=5 LINES=50
 ````
