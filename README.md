@@ -21,14 +21,13 @@ make build
 
 ##### Parameters: 
 
-- **THRESHOLD** - Number of word characters in result
-    - default = 7
-- **LINES** - Number of result lines
-    - default = 100
+**THRESHOLD** - Number of word characters in result. Default = 7
+
+**LINES** - Number of result lines. Default = 100
 
 ##### Example:
 ````bash
-make run THRESHOLD=5 LINES=100
+make run THRESHOLD=5 LINES=50
 ````
 
 ## Running tests
