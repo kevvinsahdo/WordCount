@@ -16,13 +16,13 @@ object WordCount {
 
     def main(args: Array[String] = Array("7", "50")): Unit = {
         //threshold: Filter number of characters in word
-        val threshold: Integer = 7
+        var threshold: Integer = 7
         //lines: Show given number of lines in result
-        val lines: Integer  = 100
+        var lines: Integer  = 100
 
         if (!args.isEmpty) {
-            val threshold: Integer = args(0).toInt
-            val lines: Integer  = args(1).toInt
+            threshold = args(0).toInt
+            lines = args(1).toInt
         }
 
         // Load .csv file with tweets in a spark dataframe
@@ -34,14 +34,18 @@ object WordCount {
         // Get words from tweets texts in csv
         val tweetsWords = getTweetsWords(tweetsDataframe, stopWordsDataframe)
 
+        showWords(tweetsWords, threshold, lines)
+
+        sparkSession.stop()
+    }
+
+    def showWords(tweetsWords: DataFrame, threshold: Integer, lines: Integer) = {
         tweetsWords
           .filter(length(col("word")) > threshold)
           .groupBy("word")
           .count()
           .orderBy(desc("count"))
           .show(lines)
-
-        sparkSession.stop()
     }
 
     def getTweetsWords(tweetsDataframe: DataFrame, stopWordsDataframe: DataFrame) = tweetsDataframe.select("text")
