@@ -24,4 +24,16 @@ class WordCountTest extends AnyFunSuite {
     assert((tweetWords.first.getString(0) === "test123"))
     assert(tweetWords.isInstanceOf[DataFrame])
   }
+
+  test("Test getStopWordsDataframe return a dataframe object") {
+    val stopWordsDataframe = WordCount.getStopWordsDataframe()
+
+    assert(stopWordsDataframe.isInstanceOf[DataFrame])
+  }
+
+  test("Test getTweetsDataframe return a dataframe object") {
+    val tweetsDataframe = WordCount.getTweetsDataframe()
+
+    assert(tweetsDataframe.isInstanceOf[DataFrame])
+  }
 }
