@@ -1,0 +1,18 @@
+
+# Scala files
+*.class
+*.log
+
+# SBT files
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+.history
+.cache
+.lib/
+
+# IDE files
+.idea
